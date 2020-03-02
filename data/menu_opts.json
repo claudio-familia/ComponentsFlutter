@@ -15,6 +15,16 @@
             "ruta" : "card",
             "icon" : "folder_open",
             "texto": "Cards - Tarjetas"
+        },
+        {
+            "ruta" : "animatedContainer",
+            "icon" : "live_tv",
+            "texto": "Animated Container"
+        },        
+        {
+            "ruta" : "forms",
+            "icon" : "send",
+            "texto": "Forms"
         }
     ]
 }
