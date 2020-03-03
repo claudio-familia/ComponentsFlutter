@@ -10,6 +10,9 @@ class _FormsPageState extends State<FormsPage> {
   String _email = ""; 
   String _password = "";
   String _date = "";
+  String _country = "Republica Dominicana";
+  
+  List<String> _countryList = ["Republica Dominicana", "Haiti", "Cuba", "Puerto Rico", "Jamaica"];  
 
   TextEditingController _dateFieldController = new TextEditingController();
 
@@ -37,14 +40,19 @@ class _FormsPageState extends State<FormsPage> {
              Divider(),
              _getTextDateSelector(context),
              Divider(),
+             _getDropDownCountries(),
+             Divider(),
              ListTile(
                title: Column(
+                 crossAxisAlignment: CrossAxisAlignment.start,
                  children: <Widget>[
                    Text('Name: $_name'),
                    Text('Email: $_email'),
-                   Text('Password: ${'*'*(_password.length)}')
+                   Text('Password: ${'*'*(_password.length)}'),
+                   Text('Birthday: $_date'),                   
                  ],
                ),
+               trailing: Text('$_country'),
              )
            ],
         ),
@@ -124,7 +132,7 @@ class _FormsPageState extends State<FormsPage> {
     );
   }
 
-   _getTextDateSelector(BuildContext context) {
+  _getTextDateSelector(BuildContext context) {
      return Container(
       padding: EdgeInsets.only(left: 5.5, right: 5.5, top: 25),
       child: TextField(   
@@ -162,4 +170,26 @@ class _FormsPageState extends State<FormsPage> {
       });
     }
   }
+
+ _getDropDownCountries(){
+   List<DropdownMenuItem> _options = new List();
+
+   _countryList.forEach((country){
+     _options.add(DropdownMenuItem(
+       child: Text(country),
+       value: country,
+     ));
+   });
+
+   return DropdownButton(
+     items: _options,
+     value: _country,     
+     onChanged: (item){   
+       setState(() {
+         _country = item;
+       });   
+      print(item);
+     },
+   );
+ }
 }

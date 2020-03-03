@@ -6,6 +6,7 @@ Map<String, IconData> _icons = {
   'folder_open'   : Icons.folder_open,
   'live_tv'       : Icons.live_tv,
   'send'          : Icons.send,
+  'image'          : Icons.image,
 };
 
 

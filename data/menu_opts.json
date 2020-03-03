@@ -25,6 +25,11 @@
             "ruta" : "forms",
             "icon" : "send",
             "texto": "Forms"
+        },              
+        {
+            "ruta" : "sliders",
+            "icon" : "image",
+            "texto": "sliders"
         }
     ]
 }
