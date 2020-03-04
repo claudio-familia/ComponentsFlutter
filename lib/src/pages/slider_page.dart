@@ -8,6 +8,7 @@ class SliderPage extends StatefulWidget {
 
 class _SliderPageState extends State<SliderPage> {
   double _sliderValue = 250.0;
+  bool _lockSlider = false;
   
   @override
   Widget build(BuildContext context) {
@@ -21,6 +22,9 @@ class _SliderPageState extends State<SliderPage> {
           children: <Widget>[          
             _getSlider(),
             Text('Divine Dancer Zed', style: TextStyle(fontSize: 25),),
+            _getCheckBox(),
+            _getCheckListTle(),
+            _getSwitchTle(),
             Expanded(
               child: _getImage()
             )            
@@ -37,7 +41,7 @@ class _SliderPageState extends State<SliderPage> {
       activeColor: Colors.redAccent,
       min:50.0,
       max: 400.0, 
-      onChanged: (val){
+      onChanged: _lockSlider ? null : (val){
         setState(() {
           _sliderValue = val;
           print(val);
@@ -54,4 +58,44 @@ class _SliderPageState extends State<SliderPage> {
       fit: BoxFit.contain
     );
   }
+
+  _getCheckBox(){
+    return Checkbox(
+      value: _lockSlider, 
+      activeColor: Colors.blueAccent,
+      onChanged: (checked){
+        setState(() {
+          _lockSlider = checked;
+        });
+      }
+    );
+  }
+
+   _getCheckListTle(){
+    return CheckboxListTile(
+      title: Text('Bloquear slider'),
+      value: _lockSlider, 
+      activeColor: Colors.blueAccent,
+      onChanged: (checked){
+        setState(() {
+          _lockSlider = checked;
+        });
+      }
+    );
+  }
+
+   _getSwitchTle(){
+    return SwitchListTile(
+      title: Text('Bloquear slider'),
+      value: _lockSlider, 
+      activeColor: Colors.blueAccent,
+      onChanged: (checked){
+        setState(() {
+          _lockSlider = checked;
+        });
+      }
+    );
+  }
+
+
 }
